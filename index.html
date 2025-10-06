@@ -1,0 +1,17 @@
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="module" defer="true">
+    import Swapi from "./src/swapi_data.js";
+    import Question from "./src/question.js";
+
+
+    let swapi = new Swapi();
+    
+    let question = new Question(swapi);
+    question.question();
+
+</script>
+</head>
+<body>
+
+</body>
