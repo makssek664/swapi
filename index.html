@@ -1,17 +1,27 @@
+<!DOCTYPE html>
+<html>
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="module" defer="true">
     import Swapi from "./src/swapi_data.js";
     import Question from "./src/question.js";
-
-
-    let swapi = new Swapi();
     
+    let swapi = new Swapi();
     let question = new Question(swapi);
+    
     question.question();
-
+    function loop() {
+        if(!question.isAnswered()) {
+            window.setTimeout(loop, 2500);
+        } else {
+            question.question();
+        }
+    }
+    loop();
+    
 </script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 </body>
+</html>
